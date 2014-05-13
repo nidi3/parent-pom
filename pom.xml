@@ -5,15 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>guru.nidi</groupId>
-    <artifactId>parent-pom</artifactId>
+    <artifactId>guru-nidi-parent-pom</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>Parent pom</description>
     <url>https://github.com/nidi3/parent-pom</url>
     <inceptionYear>2014</inceptionYear>
 
     <properties>
+        <dependency.locations.enabled>false</dependency.locations.enabled>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -37,6 +39,7 @@
                         <useReleaseProfile>false</useReleaseProfile>
                         <releaseProfiles>release</releaseProfiles>
                         <goals>deploy</goals>
+                        <checkModificationExcludeList>workspace.xml</checkModificationExcludeList>
                     </configuration>
                 </plugin>
                 <plugin>
