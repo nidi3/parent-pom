@@ -85,6 +85,8 @@
                         <includes>
                             <include>src/main/java/guru/**/*</include>
                             <include>src/test/java/guru/**/*</include>
+                            <include>src/main/scala/guru/**/*</include>
+                            <include>src/test/scala/guru/**/*</include>
                         </includes>
                         <mapping>
                             <java>SLASHSTAR_STYLE</java>
