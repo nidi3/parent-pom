@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>guru.nidi</groupId>
-    <artifactId>guru-nidi-parent-pom</artifactId>
+    <artifactId>guru-nidi-parent-pom-jdk6</artifactId>
     <version>1.0.6-SNAPSHOT</version>
 
     <packaging>pom</packaging>
