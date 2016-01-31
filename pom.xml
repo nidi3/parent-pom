@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>guru.nidi</groupId>
-    <artifactId>guru-nidi-parent-pom</artifactId>
+    <artifactId>guru-nidi-parent-pom-jdk6</artifactId>
     <version>1.0.6-SNAPSHOT</version>
 
     <packaging>pom</packaging>
@@ -16,7 +16,7 @@
         <dependency.locations.enabled>false</dependency.locations.enabled>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <slf4j.version>1.7.7</slf4j.version>
-        <java.version>1.7</java.version>
+        <java.version>1.6</java.version>
     </properties>
 
     <build>
