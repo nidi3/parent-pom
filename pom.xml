@@ -87,9 +87,13 @@
                             <include>src/test/java/guru/**/*</include>
                             <include>src/main/scala/guru/**/*</include>
                             <include>src/test/scala/guru/**/*</include>
+                            <include>src/main/kotlin/guru/**/*</include>
+                            <include>src/test/kotlin/guru/**/*</include>
                         </includes>
                         <mapping>
                             <java>SLASHSTAR_STYLE</java>
+                            <scala>SLASHSTAR_STYLE</scala>
+                            <kt>SLASHSTAR_STYLE</kt>
                         </mapping>
                         <strictCheck>true</strictCheck>
                         <properties>
