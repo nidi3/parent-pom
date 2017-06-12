@@ -15,9 +15,10 @@
     <properties>
         <dependency.locations.enabled>false</dependency.locations.enabled>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <suppressionFile>owasp-suppression.xml</suppressionFile>
         <slf4j.version>1.7.25</slf4j.version>
         <java.version>1.7</java.version>
-        <code-assert.version>0.0.12</code-assert.version>
+        <code-assert.version>0.0.13</code-assert.version>
     </properties>
 
     <build>
@@ -182,7 +183,6 @@
                                 </goals>
                                 <configuration>
                                     <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
-                                    <suppressionFile>${basedir}/owasp-suppression.xml</suppressionFile>
                                 </configuration>
                             </execution>
                         </executions>
