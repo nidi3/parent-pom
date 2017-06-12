@@ -182,6 +182,7 @@
                                 </goals>
                                 <configuration>
                                     <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
+                                    <suppressionFile>${basedir}/owasp-suppression.xml</suppressionFile>
                                 </configuration>
                             </execution>
                         </executions>
