@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.1.xsd">
+    <suppress>
+        <notes>This is a nexus-staging dependency, what can we do?</notes>
+        <sha1>50ade46f23bb38cd984b4ec560c46223432aac38</sha1>
+        <cpe>cpe:/a:spice_project:spice:1.4</cpe>
+    </suppress>
+    <suppress>
+        <notes>This is a nexus-staging dependency, what can we do?</notes>
+        <sha1>dedc02034fb8fcd7615d66593228cb71709134b4</sha1>
+        <cpe>cpe:/a:spice_project:spice:1.3</cpe>
+    </suppress>
+</suppressions>
