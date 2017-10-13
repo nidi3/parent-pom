@@ -42,7 +42,7 @@
                         <releaseProfiles>release</releaseProfiles>
                         <goals>deploy</goals>
                         <checkModificationExcludeList>workspace.xml</checkModificationExcludeList>
-                        <arguments>-Prelease-all</arguments>
+                        <arguments>-Prelease-dep-check</arguments>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -205,29 +205,6 @@
             </build>
         </profile>
         <profile>
-            <id>release-all</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.owasp</groupId>
-                        <artifactId>dependency-check-maven</artifactId>
-                        <version>2.1.1</version>
-                        <executions>
-                            <execution>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>aggregate</goal>
-                                </goals>
-                                <configuration>
-                                    <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
             <id>release</id>
             <build>
                 <plugins>
@@ -243,12 +220,14 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <groupId>org.jetbrains.dokka</groupId>
+                        <artifactId>dokka-maven-plugin</artifactId>
+                        <version>0.9.15</version>
                         <executions>
                             <execution>
-                                <id>attach-javadocs</id>
+                                <phase>package</phase>
                                 <goals>
-                                    <goal>jar</goal>
+                                    <goal>javadocJar</goal>
                                 </goals>
                             </execution>
                         </executions>
@@ -262,6 +241,29 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release-dep-ckeck</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.owasp</groupId>
+                        <artifactId>dependency-check-maven</artifactId>
+                        <version>2.1.1</version>
+                        <executions>
+                            <execution>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>aggregate</goal>
+                                </goals>
+                                <configuration>
+                                    <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
@@ -367,4 +369,11 @@
         </dependencies>
     </dependencyManagement>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jcenter</id>
+            <name>JCenter</name>
+            <url>https://jcenter.bintray.com/</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
