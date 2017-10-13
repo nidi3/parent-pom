@@ -219,7 +219,7 @@
             </build>
         </profile>
         <profile>
-            <id>release-dep-ckeck</id>
+            <id>release-dep-check</id>
             <build>
                 <plugins>
                     <plugin>
