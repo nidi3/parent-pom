@@ -15,10 +15,27 @@
     <properties>
         <dependency.locations.enabled>false</dependency.locations.enabled>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.0.1</junit.version>
-        <slf4j.version>1.7.25</slf4j.version>
         <java.version>1.8</java.version>
-        <code-assert.version>0.8.3</code-assert.version>
+
+        <junit.version>5.0.3</junit.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <logback.version>1.2.3</logback.version>
+        <apiguardian.version>1.0.0</apiguardian.version>
+
+        <code-assert.version>0.8.5</code-assert.version>
+        <nexus-staging.version>1.6.8</nexus-staging.version>
+        <license.version>3.0</license.version>
+        <dokka.version>0.9.15</dokka.version>
+        <dependency-check.version>3.1.0</dependency-check.version>
+        <maven-compiler.version>3.7.0</maven-compiler.version>
+        <maven-release.version>2.5.3</maven-release.version>
+        <maven-surefire.version>2.20.1</maven-surefire.version>
+        <maven-source.version>3.0.1</maven-source.version>
+        <maven-javadoc.version>3.0.0</maven-javadoc.version>
+        <maven-site.version>3.7</maven-site.version>
+        <maven-project-info.version>2.9</maven-project-info.version>
+        <maven-gpg.version>1.6</maven-gpg.version>
+        <maven-jdeps.version>3.1.0</maven-jdeps.version>
     </properties>
 
     <build>
@@ -26,7 +43,7 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.1</version>
+                    <version>${maven-compiler.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
@@ -34,7 +51,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.3</version>
+                    <version>${maven-release.version}</version>
                     <configuration>
                         <autoVersionSubmodules>true</autoVersionSubmodules>
                         <useReleaseProfile>false</useReleaseProfile>
@@ -46,39 +63,39 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.19.1</version>
+                    <version>${maven-surefire.version}</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.junit.platform</groupId>
                             <artifactId>junit-platform-surefire-provider</artifactId>
-                            <version>1.0.1</version>
+                            <version>1.0.3</version>
                         </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <version>${maven-surefire.version}</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.4</version>
+                    <version>${maven-javadoc.version}</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.6</version>
+                    <version>${maven-site.version}</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>2.9</version>
+                    <version>${maven-project-info.version}</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>1.6</version>
+                    <version>${maven-gpg.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>1.6.8</version>
+                    <version>${nexus-staging.version}</version>
                     <extensions>true</extensions>
                     <configuration>
                         <serverId>ossrh</serverId>
@@ -89,7 +106,7 @@
                 <plugin>
                     <groupId>com.mycila</groupId>
                     <artifactId>license-maven-plugin</artifactId>
-                    <version>3.0</version>
+                    <version>${license.version}</version>
                     <configuration>
                         <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
                         <includes>
@@ -161,7 +178,7 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-jdeps-plugin</artifactId>
-                        <version>3.0.0</version>
+                        <version>${maven-jdeps.version}</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -192,7 +209,7 @@
                     <plugin>
                         <groupId>org.jetbrains.dokka</groupId>
                         <artifactId>dokka-maven-plugin</artifactId>
-                        <version>0.9.15</version>
+                        <version>${dokka.version}</version>
                         <executions>
                             <execution>
                                 <phase>package</phase>
@@ -224,7 +241,7 @@
                     <plugin>
                         <groupId>org.owasp</groupId>
                         <artifactId>dependency-check-maven</artifactId>
-                        <version>2.1.1</version>
+                        <version>${dependency-check.version}</version>
                         <executions>
                             <execution>
                                 <phase>validate</phase>
@@ -308,7 +325,7 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.2.3</version>
+                <version>${logback.version}</version>
             </dependency>
 
             <dependency>
@@ -326,7 +343,7 @@
             <dependency>
                 <groupId>org.apiguardian</groupId>
                 <artifactId>apiguardian-api</artifactId>
-                <version>1.0.0</version>
+                <version>${apiguardian.version}</version>
                 <scope>test</scope>
             </dependency>
 
