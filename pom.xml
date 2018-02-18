@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>guru.nidi</groupId>
@@ -33,6 +34,7 @@
         <maven-dependency.version>3.0.2</maven-dependency.version>
         <maven-antrun.version>1.8</maven-antrun.version>
         <maven-exec.version>1.6.0</maven-exec.version>
+        <maven-build-helper.version>3.0.0</maven-build-helper.version>
         <maven-shade.version>3.1.0</maven-shade.version>
         <maven-release.version>2.5.3</maven-release.version>
         <maven-surefire.version>2.20.1</maven-surefire.version>
@@ -67,6 +69,11 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
                     <version>${maven-exec.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${maven-build-helper.version}</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-shade-plugin</artifactId>
@@ -224,6 +231,36 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>add kotlin sources</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>add-source</goal>
+                                </goals>
+                                <configuration>
+                                    <sources>
+                                        <source>src/main/kotlin</source>
+                                    </sources>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>add kotlin test sources</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>add-test-source</goal>
+                                </goals>
+                                <configuration>
+                                    <sources>
+                                        <source>src/test/kotlin</source>
+                                    </sources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
                         <artifactId>kotlin-maven-plugin</artifactId>
                         <groupId>org.jetbrains.kotlin</groupId>
                         <version>${kotlin.version}</version>
@@ -334,17 +371,17 @@
                     </plugin>
                     <!-- comment out due to https://github.com/Kotlin/dokka/issues/272 -->
                     <!--<plugin>-->
-                        <!--<groupId>org.jetbrains.dokka</groupId>-->
-                        <!--<artifactId>dokka-maven-plugin</artifactId>-->
-                        <!--<version>${dokka.version}</version>-->
-                        <!--<executions>-->
-                            <!--<execution>-->
-                                <!--<phase>package</phase>-->
-                                <!--<goals>-->
-                                    <!--<goal>javadocJar</goal>-->
-                                <!--</goals>-->
-                            <!--</execution>-->
-                        <!--</executions>-->
+                    <!--<groupId>org.jetbrains.dokka</groupId>-->
+                    <!--<artifactId>dokka-maven-plugin</artifactId>-->
+                    <!--<version>${dokka.version}</version>-->
+                    <!--<executions>-->
+                    <!--<execution>-->
+                    <!--<phase>package</phase>-->
+                    <!--<goals>-->
+                    <!--<goal>javadocJar</goal>-->
+                    <!--</goals>-->
+                    <!--</execution>-->
+                    <!--</executions>-->
                     <!--</plugin>-->
 
                     <!-- remove as soon as dokka works again -->
