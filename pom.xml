@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>guru.nidi</groupId>
@@ -27,7 +28,7 @@
         <code-assert.version>0.9.3</code-assert.version>
         <nexus-staging.version>1.6.8</nexus-staging.version>
         <license.version>3.0</license.version>
-        <dokka.version>0.9.15</dokka.version>
+        <dokka.version>0.9.17</dokka.version>
         <dependency-check.version>3.1.2</dependency-check.version>
         <maven-compiler.version>3.7.0</maven-compiler.version>
         <maven-dependency.version>3.0.2</maven-dependency.version>
@@ -373,29 +374,15 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <!-- comment out due to https://github.com/Kotlin/dokka/issues/272 -->
-                    <!--<plugin>-->
-                    <!--<groupId>org.jetbrains.dokka</groupId>-->
-                    <!--<artifactId>dokka-maven-plugin</artifactId>-->
-                    <!--<version>${dokka.version}</version>-->
-                    <!--<executions>-->
-                    <!--<execution>-->
-                    <!--<phase>package</phase>-->
-                    <!--<goals>-->
-                    <!--<goal>javadocJar</goal>-->
-                    <!--</goals>-->
-                    <!--</execution>-->
-                    <!--</executions>-->
-                    <!--</plugin>-->
-
-                    <!-- remove as soon as dokka works again -->
                     <plugin>
-                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <groupId>org.jetbrains.dokka</groupId>
+                        <artifactId>dokka-maven-plugin</artifactId>
+                        <version>${dokka.version}</version>
                         <executions>
                             <execution>
-                                <id>attach-javadocs</id>
+                                <phase>package</phase>
                                 <goals>
-                                    <goal>jar</goal>
+                                    <goal>javadocJar</goal>
                                 </goals>
                             </execution>
                         </executions>
@@ -409,36 +396,6 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <!-- remove as soon as dokka works again -->
-        <profile>
-            <id>create-dummy-javadoc</id>
-            <activation>
-                <file>
-                    <missing>${basedir}/src/main/java</missing>
-                </file>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <version>${maven-jar.version}</version>
-                        <executions>
-                            <execution>
-                                <id>Generate empty javadoc</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                                <configuration>
-                                    <classifier>javadoc</classifier>
-                                    <classesDirectory>${basedir}/javadoc</classesDirectory>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
