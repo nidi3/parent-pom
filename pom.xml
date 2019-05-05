@@ -411,6 +411,7 @@
                                 <configuration>
                                     <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
                                     <failOnError>${dependency-check.fail-on-error}</failOnError>
+                                    <skipSystemScope>true</skipSystemScope>
                                 </configuration>
                             </execution>
                         </executions>
