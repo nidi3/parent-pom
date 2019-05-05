@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>guru.nidi</groupId>
@@ -19,28 +20,28 @@
         <kotlin.version>1.2.61</kotlin.version>
         <dependency-check.fail-on-error>true</dependency-check.fail-on-error>
 
-        <junit.version>5.3.0</junit.version>
-        <slf4j.version>1.7.25</slf4j.version>
+        <junit.version>5.4.2</junit.version>
+        <junit.platform.version>1.4.2</junit.platform.version>
+        <slf4j.version>1.7.26</slf4j.version>
         <logback.version>1.2.3</logback.version>
         <apiguardian.version>1.0.0</apiguardian.version>
 
-        <code-assert.version>0.9.4</code-assert.version>
+        <code-assert.version>0.9.5</code-assert.version>
         <nexus-staging.version>1.6.8</nexus-staging.version>
         <license.version>3.0</license.version>
-        <dokka.version>0.9.17</dokka.version>
-        <dependency-check.version>3.3.1</dependency-check.version>
-        <maven-compiler.version>3.8.0</maven-compiler.version>
+        <dokka.version>0.9.18</dokka.version>
+        <dependency-check.version>4.0.2</dependency-check.version>
+        <maven-compiler.version>3.8.1</maven-compiler.version>
         <maven-dependency.version>3.1.1</maven-dependency.version>
         <maven-antrun.version>1.8</maven-antrun.version>
-        <maven-jar.version>3.1.0</maven-jar.version>
+        <maven-jar.version>3.1.1</maven-jar.version>
         <maven-exec.version>1.6.0</maven-exec.version>
         <maven-build-helper.version>3.0.0</maven-build-helper.version>
-        <maven-shade.version>3.1.1</maven-shade.version>
+        <maven-shade.version>3.2.1</maven-shade.version>
         <maven-release.version>2.5.3</maven-release.version>
-        <!-- Don't update until https://issues.apache.org/jira/browse/SUREFIRE-1330 -->
-        <maven-surefire.version>2.19.1</maven-surefire.version>
+        <maven-surefire.version>2.22.2</maven-surefire.version>
         <maven-source.version>3.0.1</maven-source.version>
-        <maven-javadoc.version>3.0.1</maven-javadoc.version>
+        <maven-javadoc.version>3.1.0</maven-javadoc.version>
         <maven-site.version>3.7.1</maven-site.version>
         <maven-project-info.version>3.0.0</maven-project-info.version>
         <maven-gpg.version>1.6</maven-gpg.version>
@@ -95,13 +96,6 @@
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire.version}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.junit.platform</groupId>
-                            <artifactId>junit-platform-surefire-provider</artifactId>
-                            <version>1.1.0</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
                 <plugin>
                     <artifactId>maven-source-plugin</artifactId>
@@ -471,6 +465,14 @@
             <artifactId>junit-jupiter-params</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-engine</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apiguardian</groupId>
             <artifactId>apiguardian-api</artifactId>
         </dependency>
@@ -543,6 +545,18 @@
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-params</artifactId>
                 <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.platform</groupId>
+                <artifactId>junit-platform-commons</artifactId>
+                <version>${junit.platform.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.platform</groupId>
+                <artifactId>junit-platform-engine</artifactId>
+                <version>${junit.platform.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
