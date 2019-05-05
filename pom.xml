@@ -25,7 +25,7 @@
         <logback.version>1.2.3</logback.version>
         <apiguardian.version>1.0.0</apiguardian.version>
 
-        <code-assert.version>0.9.5</code-assert.version>
+        <code-assert.version>0.9.6</code-assert.version>
         <nexus-staging.version>1.6.8</nexus-staging.version>
         <license.version>3.0</license.version>
         <dokka.version>0.9.18</dokka.version>
