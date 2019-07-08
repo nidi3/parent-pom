@@ -5,3 +5,6 @@ jdk:
 cache:
   directories:
     - $HOME/.m2
+
+before_install:
+  - cat $HOME/.m2/settings.xml
